@@ -6,8 +6,8 @@ import type { Food } from './types';
 import { FoodFormatter } from './utils/foodFormatter';
 import './App.css';
 
-const HA_URL = import.meta.env.HA_URL;
-const HA_TOKEN = import.meta.env.HA_TOKEN;
+const VITE_HA_URL = import.meta.env.VITE_HA_URL;
+const VITE_HA_TOKEN = import.meta.env.VITE_HA_TOKEN;
 
 const ENTITY_ID = "todo.aliments";
 
@@ -19,10 +19,10 @@ function App() {
   const fetchFoods = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${HA_URL}/api/services/todo/get_items?return_response=true`, {
+      const response = await fetch(`${VITE_HA_URL}/api/services/todo/get_items?return_response=true`, {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${HA_TOKEN}`,
+          "Authorization": `Bearer ${VITE_HA_TOKEN}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ entity_id: ENTITY_ID })
@@ -53,10 +53,10 @@ function App() {
   const handleAddFood = async (name: string, date: string) => {
     setLoading(true);
     try {
-      await fetch(`${HA_URL}/api/services/todo/add_item`, {
+      await fetch(`${VITE_HA_URL}/api/services/todo/add_item`, {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${HA_TOKEN}`,
+          "Authorization": `Bearer ${VITE_HA_TOKEN}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -76,10 +76,10 @@ function App() {
   const handleDeleteFood = async (uid: string) => {
     setLoading(true);
     try {
-      await fetch(`${HA_URL}/api/services/todo/remove_item`, {
+      await fetch(`${VITE_HA_URL}/api/services/todo/remove_item`, {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${HA_TOKEN}`,
+          "Authorization": `Bearer ${VITE_HA_TOKEN}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({

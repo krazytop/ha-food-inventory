@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  food-inventory:
+    build:
+      context: .
+      args:
+        - VITE_HA_URL=${VITE_HA_URL}
+        - VITE_HA_TOKEN=${VITE_HA_TOKEN}
+    container_name: food-inventory
+    ports:
+      - "8082:80"
+    restart: unless-stopped
