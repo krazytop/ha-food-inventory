@@ -237,6 +237,11 @@ const FOOD_RULES: FoodRule[] = [
     emoji: "🥧",
     name: "Pâte à tarte",
     matchers: ["pate a tarte", "pâte à tarte", "pate brisee", "pate feuilletee", "pâte feuilletée"]
+  },
+  {
+    emoji: "🍕",
+    name: "Pizza",
+    matchers: ["pizza", "pizzas"]
   }
 ];
 
